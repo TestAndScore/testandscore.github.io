@@ -106,17 +106,7 @@
    * Initiate glightbox
    */
   const glightbox = GLightbox({
-    selector: '.glightbox',
-    youtube: {
-      autoplay: true,
-      mute: false,
-    },
-    onOpen: () => {
-      const videoElement = document.querySelector('video');
-      if (videoElement) {
-        videoElement.play();
-      }
-    }
+    selector: '.glightbox'
   });
 
   /**
