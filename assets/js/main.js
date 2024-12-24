@@ -11,7 +11,7 @@
 
   /**
    * Apply .scrolled class to the body as the page is scrolled down
-   */
+   
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
@@ -20,7 +20,7 @@
   }
 
   document.addEventListener('scroll', toggleScrolled);
-  window.addEventListener('load', toggleScrolled);
+  window.addEventListener('load', toggleScrolled);*/
 
   /**
    * Mobile nav toggle
@@ -36,7 +36,7 @@
 
   /**
    * Hide mobile nav on same-page/hash links
-   */
+   
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
       if (document.querySelector('.mobile-nav-active')) {
@@ -45,10 +45,10 @@
     });
 
   });
-
+*/
   /**
    * Toggle mobile nav dropdowns
-   */
+   
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
     navmenu.addEventListener('click', function(e) {
       e.preventDefault();
@@ -57,17 +57,17 @@
       e.stopImmediatePropagation();
     });
   });
-
+*/
   /**
    * Preloader
-   */
+   
   const preloader = document.querySelector('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
       preloader.remove();
     });
   }
-
+*/
   /**
    * Scroll top button
    */
@@ -147,7 +147,7 @@
       }
     });
   }*/
-
+   
   //window.addEventListener("load", initSwiper);
 
   /**
@@ -213,12 +213,24 @@
   /**
    * Navmenu Scrollspy
    */
- /* let navmenulinks = document.querySelectorAll('.navmenu a');
+ 
 
   function navmenuScrollspy() {
+    let navmenulinks = document.querySelectorAll('.navmenu a');
     navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
+      if (!navmenulink.hash.split('#').length>0) return;
+      if(window.location.hash=="#/careers" && navmenulink.hash=="#/careers")
+        {
+          document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+          navmenulink.classList.add('active');
+        }
+        else if(window.location.hash=="#/home" && navmenulink.hash=="#/home")
+          {
+            document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+            navmenulink.classList.add('active');
+          }
+      else{
+      let section = document.querySelector('#'+navmenulink.hash.split('#')[2]);
       if (!section) return;
       let position = window.scrollY + 200;
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
@@ -227,9 +239,12 @@
       } else {
         navmenulink.classList.remove('active');
       }
+    }
     })
   }
   window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);*/
+  document.addEventListener('scroll', navmenuScrollspy);
+
+
 
 })();
